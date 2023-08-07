@@ -21,7 +21,7 @@ function Form() {
             <option>2023-08-12</option>
           </Select>
 
-          <FormLabel>Time</FormLabel>
+          <FormLabel marginTop="10px">Time</FormLabel>
           <Select placeholder="Select Time">
             <option>16:00</option>
             <option>17:00</option>
@@ -33,14 +33,14 @@ function Form() {
             <option>23:00</option>
           </Select>
 
-          <FormLabel>Number of Diners</FormLabel>
+          <FormLabel marginTop="10px">Number of Diners</FormLabel>
           <Select placeholder="Select Number of Diners">
             <option>1</option>
             <option>2</option>
             <option>3</option>
           </Select>
 
-          <FormLabel>Occasion</FormLabel>
+          <FormLabel marginTop="10px">Occasion</FormLabel>
           <Select placeholder="Select Occasion">
             <option>Birthday</option>
             <option>Engagement</option>
@@ -48,8 +48,10 @@ function Form() {
           </Select>
         </FormControl>
 
-        <FormControl as="fieldset" marginTop="10px">
-          <FormLabel as="seating">Seating Options </FormLabel>
+        <FormControl as="fieldset">
+          <FormLabel marginTop="10px" as="seating">
+            Seating Options
+          </FormLabel>
           <RadioGroup defaultValue="Standart">
             <HStack spacing="24px">
               <Radio value="Standart">Standart</Radio>
