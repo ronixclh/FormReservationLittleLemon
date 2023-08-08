@@ -14,8 +14,8 @@ function Reservation() {
         alignItems="center"
         bg="#3F3F3F"
         color="white"
-        marginRight="400px"
-        marginLeft="400px"
+        // marginRight="400px"
+        // marginLeft="400px"
         padding="20px"
       >
         <div>

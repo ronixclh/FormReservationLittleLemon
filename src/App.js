@@ -1,11 +1,11 @@
 import './App.css'
-import Nav from './components/Nav'
 import Reservation from './components/Reservation'
+import NavB from './components/NavB'
 
 function App() {
   return (
     <div className="App">
-      <Nav />
+      <NavB />
       <Reservation />
     </div>
   )
