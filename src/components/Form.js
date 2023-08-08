@@ -1,16 +1,21 @@
 import React from 'react'
-import { FormControl, FormLabel } from '@chakra-ui/react'
-import { ChakraProvider } from '@chakra-ui/react'
-import { Select } from '@chakra-ui/react'
-import { Button } from '@chakra-ui/react'
-import { Radio, RadioGroup } from '@chakra-ui/react'
-import { HStack } from '@chakra-ui/react'
+import {
+  FormControl,
+  FormLabel,
+  ChakraProvider,
+  Select,
+  Button,
+  Radio,
+  RadioGroup,
+  HStack,
+  VStack,
+} from '@chakra-ui/react'
 
 function Form() {
   return (
     <ChakraProvider>
-      <div>
-        <FormControl marginTop="100px">
+      <VStack spacing={['10px', '20px', '30px', '40px']} align="stretch">
+        <FormControl>
           <FormLabel>Date</FormLabel>
           <Select placeholder="Select Date">
             <option>2023-08-07</option>
@@ -20,8 +25,10 @@ function Form() {
             <option>2023-08-11</option>
             <option>2023-08-12</option>
           </Select>
+        </FormControl>
 
-          <FormLabel marginTop="10px">Time</FormLabel>
+        <FormControl>
+          <FormLabel>Time</FormLabel>
           <Select placeholder="Select Time">
             <option>16:00</option>
             <option>17:00</option>
@@ -32,15 +39,19 @@ function Form() {
             <option>22:00</option>
             <option>23:00</option>
           </Select>
+        </FormControl>
 
-          <FormLabel marginTop="10px">Number of Diners</FormLabel>
+        <FormControl>
+          <FormLabel>Number of Diners</FormLabel>
           <Select placeholder="Select Number of Diners">
             <option>1</option>
             <option>2</option>
             <option>3</option>
           </Select>
+        </FormControl>
 
-          <FormLabel marginTop="10px">Occasion</FormLabel>
+        <FormControl>
+          <FormLabel>Occasion</FormLabel>
           <Select placeholder="Select Occasion">
             <option>Birthday</option>
             <option>Engagement</option>
@@ -49,11 +60,9 @@ function Form() {
         </FormControl>
 
         <FormControl as="fieldset">
-          <FormLabel marginTop="10px" as="seating">
-            Seating Options
-          </FormLabel>
+          <FormLabel as="legend">Seating Options</FormLabel>
           <RadioGroup defaultValue="Standart">
-            <HStack spacing="24px">
+            <HStack spacing={['20px', '30px', '40px', '50px']}>
               <Radio value="Standart">Standart</Radio>
               <Radio value="Outside">Outside</Radio>
             </HStack>
@@ -63,7 +72,7 @@ function Form() {
         <Button colorScheme="yellow" size="lg" marginTop="20px">
           Let's go
         </Button>
-      </div>
+      </VStack>
     </ChakraProvider>
   )
 }
