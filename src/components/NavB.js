@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Text } from '@chakra-ui/react'
-import React from 'react'
+import React, { useState } from 'react'
 import { Box } from '@chakra-ui/react'
 import { Image } from '@chakra-ui/react'
 
@@ -77,12 +77,12 @@ function NavB() {
             </li>
           </ul>
           <Box>
-            <a href="about.html">
+            <a href="https://www.facebook.com/">
               <Image
                 className="rounded-circle"
                 width="80px"
                 height="80px"
-                src="https://o.remove.bg/downloads/bb520a7c-1164-4241-a1e7-4ff0a340abe4/eps10-white-shopping-basket-solid-icon-isolated-on-black-background-online-shop-symbol-in-a-simple-flat-trendy-modern-style-for-your-website-design-logo-pictogram-and-mobile-application-vector-removeb.png"
+                src="https://icon-library.com/images/white-shopping-cart-icon/white-shopping-cart-icon-9.jpg"
                 alt="Basket Icon"
                 style={{ marginRight: '10px' }}
               />
