@@ -6,7 +6,7 @@ import {
   Image,
   VStack,
 } from '@chakra-ui/react'
-import Form from './Form'
+import Form from './Form.js'
 
 function Reservation() {
   return (

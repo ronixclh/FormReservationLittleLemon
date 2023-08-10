@@ -15,6 +15,8 @@ import {
   AlertDescription,
 } from '@chakra-ui/react'
 import { CloseButton } from '@chakra-ui/react'
+import { augustDates, hoursBetween12To22 } from './Form_data.js'
+import { updateReservations } from './Form_reservations.js'
 
 function Form() {
   const initialFormData = {
@@ -27,6 +29,7 @@ function Form() {
 
   const [formData, setFormData] = useState({ ...initialFormData })
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [reservationsList, setReservationsList] = useState([])
 
   const handleInputChange = (event) => {
     const { name, value } = event.target
@@ -38,15 +41,31 @@ function Form() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    console.log('Handling submit...')
+    console.log('Form Data:', formData)
+    const newReservation = { ...formData }
+    updateReservations(newReservation)
+    setReservationsList((prevReservations) => [
+      ...prevReservations,
+      newReservation,
+    ])
     setIsSubmitted(true)
   }
 
   const handleAlertClose = () => {
     setIsSubmitted(false)
-    setFormData({ ...initialFormData }) // Clear the form data after the alert is closed
+    setFormData({ ...initialFormData })
   }
 
   const submittedFormData = { ...formData }
+
+  const availableDates = augustDates.filter((date) => {
+    return !reservationsList.some((reservation) => reservation.date === date)
+  })
+
+  const availableTimes = hoursBetween12To22.filter((time) => {
+    return !reservationsList.some((reservation) => reservation.time === time)
+  })
 
   return (
     <ChakraProvider>
@@ -68,12 +87,9 @@ function Form() {
             value={formData.date}
             onChange={handleInputChange}
           >
-            <option>2023-08-07</option>
-            <option>2023-08-08</option>
-            <option>2023-08-09</option>
-            <option>2023-08-10</option>
-            <option>2023-08-11</option>
-            <option>2023-08-12</option>
+            {availableDates.map((date) => (
+              <option key={date}>{date}</option>
+            ))}
           </Select>
         </FormControl>
 
@@ -85,14 +101,9 @@ function Form() {
             value={formData.time}
             onChange={handleInputChange}
           >
-            <option>16:00</option>
-            <option>17:00</option>
-            <option>18:00</option>
-            <option>19:00</option>
-            <option>20:00</option>
-            <option>21:00</option>
-            <option>22:00</option>
-            <option>23:00</option>
+            {availableTimes.map((time) => (
+              <option key={time}>{time}</option>
+            ))}
           </Select>
         </FormControl>
 
